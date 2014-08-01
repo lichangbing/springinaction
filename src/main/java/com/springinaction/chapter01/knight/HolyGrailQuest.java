@@ -7,6 +7,6 @@ public class HolyGrailQuest implements Quest {
 		
 		//Look for grail
 		
-		return new HolyGrail();
+		return new Object();
 	}
 }
