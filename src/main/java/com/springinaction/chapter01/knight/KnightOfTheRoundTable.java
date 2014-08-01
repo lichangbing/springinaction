@@ -9,5 +9,7 @@ public class KnightOfTheRoundTable {
 		this.quest = new HolyGrailQuest();
 	}
 	
-	public HolyGrail embarkOnQuest()
+	public HolyGrail embarkOnQuest() throws GrailNotFoundException{
+		return quest.embark();
+	}
 }
