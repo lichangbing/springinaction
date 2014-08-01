@@ -1,12 +1,12 @@
 package com.springinaction.chapter01.knight;
 
-public class HolyGrailQuest {
+public class HolyGrailQuest implements Quest {
 	public HolyGrailQuest(){}
 	
-	public HolyGrail embark() throws GrailNotFoundException{
-		HolyGrail grail = null;
+	public Object embark() throws QuestFailedException{
+		
 		//Look for grail
 		
-		return grail;
+		return new HolyGrail();
 	}
 }

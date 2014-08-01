@@ -1,6 +1,6 @@
 package com.springinaction.chapter01.knight;
 
-public class KnightOfTheRoundTable {
+public class KnightOfTheRoundTable implements Knight{
 	private String name;
 	private HolyGrailQuest quest;
 
@@ -9,7 +9,7 @@ public class KnightOfTheRoundTable {
 		this.quest = new HolyGrailQuest();
 	}
 	
-	public HolyGrail embarkOnQuest() throws GrailNotFoundException{
+	public Object embarkOnQuest() throws QuestFailedException{
 		return quest.embark();
 	}
 }
