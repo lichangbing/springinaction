@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+        
+	<bean id="audience" class="com.springinaction.chapter03.springidol.Audience" />
+	
+	<bean id="audienceAdvice" class="com.springinaction.chapter03.springidol.AudienctAdvice">
+		<property name="audience" ref="audience" />
+	</bean>
+	
+	<bean id="performancePointcut" class="org.springframework.aop.support.JDKRegexpMethodPointcut">
+		<property name="pattern" value=".*perform" />
+	</bean>
+	
+	<bean id="audienceAdvisor" class="org.springframework.aop.support.DefaultPointcutAdvisor">
+		<property name="advice" ref="audienceAdvice"/>
+		<property name="pointcut" ref="performancePointcut"/>
+	</bean>
+	
+	<bean id="audienceAroundAdvisor" class="org.springframework.aop.support.RegexMethodPointcutAdvisor">
+		<property name="advice" ref="audienceAdvice" />
+		<property name="pattern" ref=".*perform" />
+	</bean>
+</beans>
