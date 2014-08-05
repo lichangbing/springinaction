@@ -1,14 +1,11 @@
 package com.springinaction.chapter01.knight;
 
-import static org.junit.Assert.*;
 import junit.framework.TestCase;
 
 import org.junit.Test;
 import org.springframework.beans.factory.BeanFactory;
-import org.springframework.beans.factory.xml.XmlBeanFactory;
-import org.springframework.core.io.FileSystemResource;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import com.springinaction.chapter01.hello.GreetingServiceImpl;
 
 public class KnightOfTheRoundTableTest extends TestCase{
 
@@ -20,9 +17,10 @@ public class KnightOfTheRoundTableTest extends TestCase{
 //		
 //		assertTrue(grail.isHoly());
 //		
-		
-		BeanFactory factory = new XmlBeanFactory(new FileSystemResource("target\\classes\\applicationContextChapter01.xml"));	
+		//BeanFactory factory = new XmlBeanFactory(new FileSystemResource("target\\classes\\applicationContextChapter01.xml"));
+		BeanFactory factory = new ClassPathXmlApplicationContext("applicationContextChapter01.xml");	
 		Knight knight = (Knight) factory.getBean("knight");
+		
 		knight.embarkOnQuest();
 	}
 
